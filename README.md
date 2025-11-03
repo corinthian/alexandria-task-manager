@@ -255,6 +255,8 @@ Changing core taxonomies (contexts, status, energy, time tags) requires updating
 
 **Modal discipline breaking (stale task ID errors):** Ensure SYNC runs before all write operations, verify you didn't change tool assignments without updating protocols.
 
+**MCP tool syntax errors:** The TaskWarrior MCP server uses structured JSON parameters, not TaskWarrior CLI syntax. Use `custom_report` for sorting/filtering (e.g., filter:"status:completed", sort:"end-"), not `builtin_report` with CLI strings.
+
 ## Examples Gallery
 
 ### Example 1: Marketing Professional Customization

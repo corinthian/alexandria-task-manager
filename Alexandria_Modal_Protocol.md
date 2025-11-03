@@ -27,7 +27,7 @@
 - Always use `date` command first
 - Works in both connected and DEGRADED modes
 - No MCP dependency
-- Example: `date +"%Y-%m-%d %H:%M:%S %Z"`
+- Example: `date +"%A, %d %B %Y %H:%M:%S %Z"`
 
 Never declare time unavailable without attempting bash `date` first.
 
@@ -94,10 +94,11 @@ IF DEGRADED:
 
 IF MCP available:
 1. Check current time via bash `date`
-2. Call get_next_tasks (refresh full task list)
-3. Count by status (pending/overdue/active)
-4. Note task ID ranges
-5. Report state
+2. Call custom_report with filter:"status:completed", columns:["id","description","end"], sort:"end-", limit:10
+3. Call get_next_tasks (refresh full task list)
+4. Count by status (pending/overdue/active)
+5. Note task ID ranges
+6. Report state
 
 IF DEGRADED:
 Report: "[DEGRADED] Cannot sync - MCP TaskWarrior backend unavailable. Continuing RECORD mode with local queue."
